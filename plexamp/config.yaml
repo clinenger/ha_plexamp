@@ -1,14 +1,16 @@
-name: "Plexamp"
+name: Plexamp
+slug: plexamp
 version: "1.0.0"
-slug: "plexamp"
-description: "Plexamp headless player"
+description: Plexamp headless player
+
 startup: application
 boot: auto
 
 arch:
   - aarch64
-  - armv7
-  - armhf
+
+init: false
+host_network: true
 
 options:
   claim_token: ""
@@ -18,14 +20,11 @@ schema:
   claim_token: "str?"
   player_name: "str"
 
-privileged:
-  - SYS_ADMIN
-
 devices:
-  - /dev/snd:/dev/snd
+  - /dev/snd
 
 ports:
   "32500/tcp": 32500
   "20000/tcp": 20000
-  
+
 image: ghcr.io/anatosun/plexamp
