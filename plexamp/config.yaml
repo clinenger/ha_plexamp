@@ -10,7 +10,7 @@ arch:
   - aarch64
 
 init: false
-host_network: true
+#host_network: true
 
 options:
   claim_token: ""
@@ -24,8 +24,9 @@ devices:
   - /dev/snd
   
 webui: http://[HOST]:[PORT:32500]
-#ports:
-#  "32500/tcp": 32500
-#  "20000/tcp": 20000
+
+ports:
+  "32500/tcp": 32500
+  "20000/tcp": 20000
 
 image: ghcr.io/anatosun/plexamp
