@@ -1,10 +1,10 @@
 #!/usr/bin/with-contenv bashio
 
-# Read config from Home Assistant
+# Read Home Assistant options
 CLAIM_TOKEN=$(bashio::config 'claim_token')
 PLAYER_NAME=$(bashio::config 'player_name')
 
-# Export environment variables for Plexamp
+# Export for Plexamp process
 if [ -n "$CLAIM_TOKEN" ]; then
     export PLEXAMP_CLAIM_TOKEN="$CLAIM_TOKEN"
 fi
@@ -12,9 +12,9 @@ fi
 export PLEXAMP_PLAYER_NAME="$PLAYER_NAME"
 
 bashio::log.info "Starting Plexamp add-on..."
+bashio::log.info "Player name: ${PLAYER_NAME}"
 
 # IMPORTANT:
-# We directly exec the container's real entrypoint
-# because ghcr.io/anatosun/plexamp is NOT a Home Assistant base image
-
-exec /init || exec plexamp || exec node /app/index.js
+# Do NOT override ENTRYPOINT.
+# Just exec the container's default command.
+exec node /js/index.js
