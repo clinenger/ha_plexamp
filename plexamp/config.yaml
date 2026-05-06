@@ -22,7 +22,8 @@ schema:
 
 devices:
   - /dev/snd
-
+  
+webui: http://[HOST]:32500
 #ports:
 #  "32500/tcp": 32500
 #  "20000/tcp": 20000
