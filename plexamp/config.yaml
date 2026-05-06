@@ -12,6 +12,9 @@ arch:
 init: false
 #host_network: true
 
+map:
+  - config:rw-
+
 options:
   claim_token: ""
   player_name: "docker"
