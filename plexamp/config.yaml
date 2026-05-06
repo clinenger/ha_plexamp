@@ -23,8 +23,8 @@ schema:
 devices:
   - /dev/snd
 
-ports:
-  "32500/tcp": 32500
-  "20000/tcp": 20000
+#ports:
+#  "32500/tcp": 32500
+#  "20000/tcp": 20000
 
 image: ghcr.io/anatosun/plexamp
